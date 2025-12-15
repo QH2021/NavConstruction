@@ -1,0 +1,141 @@
+{
+  "agent_id": "Agent1",
+  "updated_at": "2025-12-15T17:34:17.669839",
+  "entries": [
+    {
+      "id": "28b24911745971b593987a16476cd3ec63bcb2f7",
+      "ts": "2025-12-15T17:27:37.674937",
+      "kind": "route_guidance",
+      "importance": 1.0,
+      "pinned": true,
+      "source": "planner",
+      "data": {
+        "start": "Start01",
+        "end": "R309",
+        "choice": 1,
+        "path": "Start01 → S101 → S201 → S301 → H303 → H302 → H305 → H306 → R309",
+        "text": "从 Start01 出发，进入楼梯间 S101，完成两跑上楼后，进入楼梯间 S201，再完成两跑上楼到达 3F，进入楼梯间 S301，完成两跑上楼后，进入走廊 H303，沿走廊前进至 H302，再进入 H305，最后进入 H306，到达目标房间 R309。"
+      }
+    },
+    {
+      "id": "87d7257600d7d13692facd43ba7757bbad6071cf",
+      "ts": "2025-12-15T17:34:17.669772",
+      "kind": "planned_path",
+      "importance": 0.95,
+      "pinned": true,
+      "source": "planner",
+      "data": {
+        "path": "Start01 → S101 → S201 → S301 → H303 → H302 → H305 → H306 → R309"
+      }
+    },
+    {
+      "id": "f851b146a2d163ec03690d0d516ada5992223df6",
+      "ts": "2025-12-15T17:27:52.212014",
+      "kind": "confirmed_location",
+      "importance": 0.85,
+      "pinned": false,
+      "source": "vlm",
+      "data": {
+        "room": "Start01",
+        "floor": 0,
+        "evidence": "loc=Start01; floor=0; map_evidence=平面图显示Start01为户外起点，前方有门洞D通向S101楼梯间；vision_delta=视觉显示前方通道清晰，无障碍；subgoal=进入楼梯间S101；plan=连续move_forward前进以穿过门洞D进入S101；risk=低，路径明确"
+      }
+    },
+    {
+      "id": "bfcadeb7628063938c79036f9662b400827e44f7",
+      "ts": "2025-12-15T17:27:52.212410",
+      "kind": "last_subgoal",
+      "importance": 0.6,
+      "pinned": false,
+      "source": "vlm",
+      "data": {
+        "subgoal": "进入楼梯间 S101"
+      }
+    },
+    {
+      "id": "2ecbfdf7fe805bf60772693f1ca4613f6e37af17",
+      "ts": "2025-12-15T17:30:51.226423",
+      "kind": "confirmed_location",
+      "importance": 0.85,
+      "pinned": false,
+      "source": "vlm",
+      "data": {
+        "room": "Start01",
+        "floor": 0,
+        "evidence": "loc=Start01; floor=0; map_evidence=平面图显示Start01为户外起点，前方有门洞D通向S101楼梯间；vision_delta=视觉显示前方通道清晰，无障碍，Depth显示距离近；subgoal=穿过门洞D进入楼梯间S101；plan=连续move_forward前进以穿过门洞D进入"
+      }
+    },
+    {
+      "id": "facaf35802f1f80b9a877b2c2de06d355eea9296",
+      "ts": "2025-12-15T17:32:11.312078",
+      "kind": "last_subgoal",
+      "importance": 0.6,
+      "pinned": false,
+      "source": "vlm",
+      "data": {
+        "subgoal": "穿过门洞D进入楼梯间S101"
+      }
+    },
+    {
+      "id": "59c789f33f511ca944c6b4ec3d4a23c86f5875c5",
+      "ts": "2025-12-15T17:28:38.710522",
+      "kind": "collision_hotspot",
+      "importance": 0.75,
+      "pinned": false,
+      "source": "env",
+      "data": {
+        "action": "move_forward",
+        "consecutive": 3,
+        "note": "疑似卡住：优先转向重新定位"
+      }
+    },
+    {
+      "id": "3d2d4784248e75b5383d2df5be2c27dc5903dcc1",
+      "ts": "2025-12-15T17:32:19.687058",
+      "kind": "last_subgoal",
+      "importance": 0.6,
+      "pinned": false,
+      "source": "vlm",
+      "data": {
+        "subgoal": "进入楼梯间S101并完成第一跑楼梯"
+      }
+    },
+    {
+      "id": "e09a4eb5180aa9c7cc3347bcc44d3b81bdf21496",
+      "ts": "2025-12-15T17:32:19.686754",
+      "kind": "confirmed_location",
+      "importance": 0.85,
+      "pinned": false,
+      "source": "vlm",
+      "data": {
+        "room": "S101",
+        "floor": 1,
+        "evidence": "loc=S101; floor=1; map_evidence=平面图显示S101为楼梯间，前方有楼梯结构，需完成第一跑；vision_delta=视觉显示前方楼梯通道清晰，无障碍，Depth显示距离近；subgoal=完成第一跑楼梯；plan=连续move_forward前进以完成楼梯间第一跑；risk=低，路径明确"
+      }
+    },
+    {
+      "id": "1c85bb10897fdcafa9bc539d3c25a1a07e4b4890",
+      "ts": "2025-12-15T17:34:17.530179",
+      "kind": "last_subgoal",
+      "importance": 0.6,
+      "pinned": false,
+      "source": "vlm",
+      "data": {
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台"
+      }
+    },
+    {
+      "id": "f74828dfbcd3c2d5e00c91da2e068cc9f97c5ca7",
+      "ts": "2025-12-15T17:34:17.529936",
+      "kind": "confirmed_location",
+      "importance": 0.85,
+      "pinned": false,
+      "source": "vlm",
+      "data": {
+        "room": "S101",
+        "floor": 1,
+        "evidence": "loc=S101; floor=1; map_evidence=平面图显示S101为楼梯间，需完成第一跑楼梯；vision_delta=视觉显示前方楼梯通道清晰，无障碍，Depth显示距离近；subgoal=完成第一跑楼梯并到达楼梯间平台；plan=连续move_forward前进以完成楼梯间第一跑；risk=低，路径"
+      }
+    }
+  ]
+}

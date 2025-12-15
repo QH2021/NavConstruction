@@ -1,0 +1,10 @@
+{
+  "agent_id": "Agent1",
+  "timestamp": "20251211_170433_351",
+  "attempt": 1,
+  "prompt": "Test prompt",
+  "images": [
+    "data:image/jpeg;base64,test"
+  ],
+  "num_images": 1
+}

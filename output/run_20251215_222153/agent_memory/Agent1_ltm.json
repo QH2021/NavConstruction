@@ -1,0 +1,132 @@
+{
+  "agent_id": "Agent1",
+  "updated_at": "2025-12-15T22:45:18.202964",
+  "entries": [
+    {
+      "id": "314e8165e2bdce07a0986f575f4cdeb04d972088",
+      "ts": "2025-12-15T22:22:13.842580",
+      "kind": "route_guidance",
+      "importance": 1.0,
+      "pinned": true,
+      "source": "planner",
+      "data": {
+        "start": "Start01",
+        "end": "R309",
+        "choice": 1,
+        "path": "Start01 → S101 → S201 → S301 → H303 → H302 → H305 → H306 → R309",
+        "text": "从 Start01 出发，进入楼梯间 S101，完成两跑上楼后，进入楼梯间 S201，再完成两跑上楼到达 3F，进入楼梯间 S301，完成两跑上楼后，进入走廊 H303，沿走廊前进至 H302，再沿走廊前进至 H305，最后进入走廊 H306，到达目标房间 R309。"
+      }
+    },
+    {
+      "id": "87d7257600d7d13692facd43ba7757bbad6071cf",
+      "ts": "2025-12-15T22:45:12.186925",
+      "kind": "planned_path",
+      "importance": 0.95,
+      "pinned": true,
+      "source": "planner",
+      "data": {
+        "path": "Start01 → S101 → S201 → S301 → H303 → H302 → H305 → H306 → R309"
+      }
+    },
+    {
+      "id": "4014ef244a686ec4a284a4eb05d9a84e39ebb178",
+      "ts": "2025-12-15T22:23:50.823024",
+      "kind": "confirmed_location",
+      "importance": 0.85,
+      "pinned": false,
+      "source": "vlm",
+      "data": {
+        "room": "Start01",
+        "floor": 0,
+        "evidence": "loc=Start01; floor=0; map_evidence=平面图显示Start01为户外起点，前方有S101楼梯间；vision_delta=前置视图显示前方为开阔走廊，有门洞D通向S101；subgoal=进入楼梯间S101；plan=连续前进3步以穿过门洞D进入S101；risk=无碰撞风险，前进方向明"
+      }
+    },
+    {
+      "id": "bfcadeb7628063938c79036f9662b400827e44f7",
+      "ts": "2025-12-15T22:31:51.078328",
+      "kind": "last_subgoal",
+      "importance": 0.6,
+      "pinned": false,
+      "source": "vlm",
+      "data": {
+        "subgoal": "进入楼梯间 S101"
+      }
+    },
+    {
+      "id": "d75bbb6ce091132ce7c4be995ae4b1dde69a3b73",
+      "ts": "2025-12-15T22:30:23.080747",
+      "kind": "confirmed_location",
+      "importance": 0.85,
+      "pinned": false,
+      "source": "vlm",
+      "data": {
+        "room": "Start01",
+        "floor": 0,
+        "evidence": "loc=Start01; floor=0; map_evidence=平面图显示Start01为户外起点，前方有S101楼梯间；vision_delta=前置视图显示前方为开阔走廊，有门洞D通向S101，深度图显示前方无障碍；subgoal=进入楼梯间S101；plan=连续前进3步以穿过门洞D进入S101；risk="
+      }
+    },
+    {
+      "id": "59c789f33f511ca944c6b4ec3d4a23c86f5875c5",
+      "ts": "2025-12-15T22:39:40.492148",
+      "kind": "collision_hotspot",
+      "importance": 0.75,
+      "pinned": false,
+      "source": "env",
+      "data": {
+        "action": "move_forward",
+        "consecutive": 3,
+        "note": "疑似卡住：优先转向重新定位"
+      }
+    },
+    {
+      "id": "c7ea1bd5c484e594e9c797ee2b46cdec6d624cad",
+      "ts": "2025-12-15T22:31:57.800763",
+      "kind": "confirmed_location",
+      "importance": 0.85,
+      "pinned": false,
+      "source": "vlm",
+      "data": {
+        "room": "S101",
+        "floor": 1,
+        "evidence": "loc=S101; floor=1; map_evidence=平面图显示S101为楼梯间，前方有楼梯结构；vision_delta=前置视图显示左侧有楼梯，前方有门洞D通向走廊；subgoal=进入楼梯间S101并完成第一跑楼梯；plan=连续前进3步以沿楼梯方向移动；risk=无碰撞风险，前进方向明确"
+      }
+    },
+    {
+      "id": "3d2d4784248e75b5383d2df5be2c27dc5903dcc1",
+      "ts": "2025-12-15T22:45:18.202938",
+      "kind": "last_subgoal",
+      "importance": 0.6,
+      "pinned": false,
+      "source": "vlm",
+      "data": {
+        "subgoal": "进入楼梯间S101并完成第一跑楼梯"
+      }
+    },
+    {
+      "id": "9c62ec3c7c84541b6a0eb15ed641a3e06f0f5cdd",
+      "ts": "2025-12-15T22:44:02.856318",
+      "kind": "confirmed_location",
+      "importance": 0.85,
+      "pinned": false,
+      "source": "vlm",
+      "data": {
+        "room": "S101",
+        "floor": 1,
+        "evidence": "loc=S101; floor=1; map_evidence=平面图显示S101为楼梯间，前方有楼梯结构；vision_delta=前置视图显示左侧有楼梯，前方有门洞D通向走廊，深度图显示前方无障碍；subgoal=进入楼梯间S101并完成第一跑楼梯；plan=连续前进3步以沿楼梯方向移动；risk=无碰撞风险，前进"
+      }
+    },
+    {
+      "id": "265c085eda21001f4c0b1541d2ea8da1192a2070",
+      "ts": "2025-12-15T22:44:02.857327",
+      "kind": "collision_hotspot",
+      "importance": 0.75,
+      "pinned": false,
+      "source": "env",
+      "data": {
+        "action": "move_forward",
+        "consecutive": 2,
+        "note": "疑似卡住：优先转向重新定位"
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "success": false,
+  "total_steps": 10,
+  "path_length": 2,
+  "start_room": "Start01",
+  "end_room": "R309",
+  "path": [
+    "Start01",
+    "S101",
+    "R309"
+  ],
+  "timestamp": "2025-12-15T17:26:19.304751",
+  "agent1_stats": {
+    "agent_id": "Agent1",
+    "success_count": 1,
+    "failure_count": 0
+  },
+  "agent2_stats": "<MagicMock name='mock.get_stats()' id='136775850272848'>"
+}

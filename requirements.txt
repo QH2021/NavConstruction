@@ -1,0 +1,8 @@
+boto3
+numpy<2
+opencv-python
+requests
+pandas
+PyYAML
+Pillow
+openpyxl

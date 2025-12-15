@@ -1,0 +1,3426 @@
+{
+  "agent_id": "Agent1",
+  "updated_at": "2025-12-15T17:34:17.642962",
+  "entries": [
+    {
+      "ts": "2025-12-15T17:31:09.248691",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 138,
+        "current_room": "Start01",
+        "current_floor": 0,
+        "confidence": 0.3,
+        "subgoal": "穿过门洞D进入楼梯间S101",
+        "actions": [
+          "turn_left",
+          "turn_left",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:09.289851",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 139,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:09.320150",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 140,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:09.350118",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 141,
+        "action": "move_forward",
+        "dist_moved": 0.25,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:14.368211",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 141,
+        "current_room": "Start01",
+        "current_floor": 0,
+        "confidence": 0.3,
+        "subgoal": "穿过门洞D进入楼梯间S101",
+        "actions": [
+          "turn_left",
+          "turn_left",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:14.429683",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 142,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:14.470074",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 143,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:14.502426",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 144,
+        "action": "move_forward",
+        "dist_moved": 0.2500000596046448,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:18.662219",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 144,
+        "current_room": "Start01",
+        "current_floor": 0,
+        "confidence": 0.3,
+        "subgoal": "穿过门洞D进入楼梯间S101",
+        "actions": [
+          "turn_right",
+          "turn_right",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:18.717653",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 145,
+        "action": "turn_right",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:18.758719",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 146,
+        "action": "turn_right",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:18.796672",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 147,
+        "action": "move_forward",
+        "dist_moved": 0.25,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:23.587919",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 147,
+        "current_room": "Start01",
+        "current_floor": 0,
+        "confidence": 0.3,
+        "subgoal": "穿过门洞D进入楼梯间S101",
+        "actions": [
+          "turn_left",
+          "turn_left",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:23.635226",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 148,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:23.668258",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 149,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:23.707610",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 150,
+        "action": "move_forward",
+        "dist_moved": 0.2500000596046448,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:27.880031",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 150,
+        "current_room": "Start01",
+        "current_floor": 0,
+        "confidence": 0.3,
+        "subgoal": "穿过门洞D进入楼梯间S101",
+        "actions": [
+          "turn_left",
+          "turn_left",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:27.925071",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 151,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:27.958543",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 152,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:27.998990",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 153,
+        "action": "move_forward",
+        "dist_moved": 0.2499999701976776,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:32.795002",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 153,
+        "current_room": "Start01",
+        "current_floor": 0,
+        "confidence": 0.3,
+        "subgoal": "穿过门洞D进入楼梯间S101",
+        "actions": [
+          "turn_right",
+          "turn_right",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:32.845561",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 154,
+        "action": "turn_right",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:32.885041",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 155,
+        "action": "turn_right",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:32.924200",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 156,
+        "action": "move_forward",
+        "dist_moved": 0.2500000298023224,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:37.915832",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 156,
+        "current_room": "Start01",
+        "current_floor": 0,
+        "confidence": 0.3,
+        "subgoal": "穿过门洞D进入楼梯间S101",
+        "actions": [
+          "turn_left",
+          "turn_left",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:37.965312",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 157,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:37.999045",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 158,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:38.033405",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 159,
+        "action": "move_forward",
+        "dist_moved": 0.2499999701976776,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:43.446346",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 159,
+        "current_room": "Start01",
+        "current_floor": 0,
+        "confidence": 0.3,
+        "subgoal": "穿过门洞D进入楼梯间S101",
+        "actions": [
+          "turn_left",
+          "turn_left",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:43.499890",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 160,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:43.538047",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 161,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:43.579999",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 162,
+        "action": "move_forward",
+        "dist_moved": 0.2500000298023224,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:48.382265",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 162,
+        "current_room": "Start01",
+        "current_floor": 0,
+        "confidence": 0.3,
+        "subgoal": "穿过门洞D进入楼梯间S101",
+        "actions": [
+          "turn_right",
+          "turn_right",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:48.434221",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 163,
+        "action": "turn_right",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:48.466765",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 164,
+        "action": "turn_right",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:48.502101",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 165,
+        "action": "move_forward",
+        "dist_moved": 0.25,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:52.666823",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 165,
+        "current_room": "Start01",
+        "current_floor": 0,
+        "confidence": 0.3,
+        "subgoal": "穿过门洞D进入楼梯间S101",
+        "actions": [
+          "turn_left",
+          "turn_left",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:52.715836",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 166,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:52.756447",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 167,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:52.791952",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 168,
+        "action": "move_forward",
+        "dist_moved": 0.25000011920928955,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:57.588095",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 168,
+        "current_room": "Start01",
+        "current_floor": 0,
+        "confidence": 0.3,
+        "subgoal": "穿过门洞D进入楼梯间S101",
+        "actions": [
+          "turn_left",
+          "turn_left",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:57.648458",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 169,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:57.693616",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 170,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:31:57.735357",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 171,
+        "action": "move_forward",
+        "dist_moved": 0.25000014901161194,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:02.084118",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 171,
+        "current_room": "Start01",
+        "current_floor": 0,
+        "confidence": 0.3,
+        "subgoal": "穿过门洞D进入楼梯间S101",
+        "actions": [
+          "turn_right",
+          "turn_right",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:02.132381",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 172,
+        "action": "turn_right",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:02.166623",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 173,
+        "action": "turn_right",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:02.200414",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 174,
+        "action": "move_forward",
+        "dist_moved": 0.25000011920928955,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:06.592555",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 174,
+        "current_room": "Start01",
+        "current_floor": 0,
+        "confidence": 0.3,
+        "subgoal": "穿过门洞D进入楼梯间S101",
+        "actions": [
+          "turn_left",
+          "turn_left",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:06.640455",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 175,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:06.678366",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 176,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:06.715198",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 177,
+        "action": "move_forward",
+        "dist_moved": 0.25000014901161194,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:11.309124",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 177,
+        "current_room": "Start01",
+        "current_floor": 0,
+        "confidence": 0.3,
+        "subgoal": "穿过门洞D进入楼梯间S101",
+        "actions": [
+          "turn_left",
+          "turn_left",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:11.364483",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 178,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:11.401646",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 179,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:11.439380",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 180,
+        "action": "move_forward",
+        "dist_moved": 0.24999982118606567,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "Start01",
+        "floor_hint": 0,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:15.608762",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 180,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.55,
+        "subgoal": "进入楼梯间S101并完成第一跑楼梯",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:15.663781",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 181,
+        "action": "move_forward",
+        "dist_moved": 0.24999982118606567,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:15.702127",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 182,
+        "action": "move_forward",
+        "dist_moved": 0.24999982118606567,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:15.744044",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 183,
+        "action": "move_forward",
+        "dist_moved": 0.24999982118606567,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:19.682878",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 183,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.85,
+        "subgoal": "进入楼梯间S101并完成第一跑楼梯",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:19.734165",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 184,
+        "action": "move_forward",
+        "dist_moved": 0.24999982118606567,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:19.770705",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 185,
+        "action": "move_forward",
+        "dist_moved": 0.24999982118606567,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:19.814867",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 186,
+        "action": "move_forward",
+        "dist_moved": 0.2499997764825821,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:23.798398",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 186,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.55,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:23.855155",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 187,
+        "action": "move_forward",
+        "dist_moved": 0.24999982118606567,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:23.898816",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 188,
+        "action": "move_forward",
+        "dist_moved": 0.24999982118606567,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:23.941596",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 189,
+        "action": "move_forward",
+        "dist_moved": 0.24999982118606567,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:27.894510",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 189,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.55,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:27.960607",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 190,
+        "action": "move_forward",
+        "dist_moved": 0.24999982118606567,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:28.003971",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 191,
+        "action": "move_forward",
+        "dist_moved": 0.24999982118606567,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:28.041224",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 192,
+        "action": "move_forward",
+        "dist_moved": 0.24999982118606567,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:31.986698",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 192,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.55,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:32.033992",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 193,
+        "action": "move_forward",
+        "dist_moved": 0.24999982118606567,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:32.071854",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 194,
+        "action": "move_forward",
+        "dist_moved": 0.2500002682209015,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:32.112135",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 195,
+        "action": "move_forward",
+        "dist_moved": 0.2500002682209015,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:35.941438",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 195,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.55,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:35.987102",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 196,
+        "action": "move_forward",
+        "dist_moved": 0.2500002682209015,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:36.024062",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 197,
+        "action": "move_forward",
+        "dist_moved": 0.2500002682209015,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:36.062004",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 198,
+        "action": "move_forward",
+        "dist_moved": 0.2419361174106598,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:39.972316",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 198,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.55,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:40.023135",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 199,
+        "action": "move_forward",
+        "dist_moved": 0.2349233627319336,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:40.062909",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 200,
+        "action": "move_forward",
+        "dist_moved": 0.2349233627319336,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:40.101138",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 201,
+        "action": "move_forward",
+        "dist_moved": 0.2349233627319336,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:44.072264",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 201,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.3,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "turn_left",
+          "turn_left",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:44.118841",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 202,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:44.157517",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 203,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:44.197552",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 204,
+        "action": "move_forward",
+        "dist_moved": 0.25,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:48.164228",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 204,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.55,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:48.213448",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 205,
+        "action": "move_forward",
+        "dist_moved": 0.25,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:48.257544",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 206,
+        "action": "move_forward",
+        "dist_moved": 0.25,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:48.295321",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 207,
+        "action": "move_forward",
+        "dist_moved": 0.25,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:52.264448",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 207,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.55,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:52.323870",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 208,
+        "action": "move_forward",
+        "dist_moved": 0.25,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:52.362767",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 209,
+        "action": "move_forward",
+        "dist_moved": 0.25,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:52.404822",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 210,
+        "action": "move_forward",
+        "dist_moved": 0.25,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:56.371648",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 210,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.55,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:56.419193",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 211,
+        "action": "move_forward",
+        "dist_moved": 0.25,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:56.455323",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 212,
+        "action": "move_forward",
+        "dist_moved": 0.25,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:32:56.496298",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 213,
+        "action": "move_forward",
+        "dist_moved": 0.25,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:00.660512",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 213,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.3,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "turn_left",
+          "turn_left",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:00.718271",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 214,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:00.763893",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 215,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:00.802397",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 216,
+        "action": "move_forward",
+        "dist_moved": 0.25000008940696716,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:04.567965",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 216,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.3,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "turn_left",
+          "turn_left",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:04.618445",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 217,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:04.654815",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 218,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:04.690978",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 219,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:08.856785",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 219,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.3,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "turn_right",
+          "turn_right",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:08.904585",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 220,
+        "action": "turn_right",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:08.941335",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 221,
+        "action": "turn_right",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:08.981239",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 222,
+        "action": "move_forward",
+        "dist_moved": 0.25000008940696716,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:13.156237",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 222,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.3,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "turn_left",
+          "turn_left",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:13.208981",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 223,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:13.251163",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 224,
+        "action": "turn_left",
+        "dist_moved": 0.0,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:13.294723",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 225,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:17.157653",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 225,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.55,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:17.208636",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 226,
+        "action": "move_forward",
+        "dist_moved": 0.2297758311033249,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:17.248545",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 227,
+        "action": "move_forward",
+        "dist_moved": 0.17054001986980438,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:17.286879",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 228,
+        "action": "move_forward",
+        "dist_moved": 0.17054001986980438,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:21.148279",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 228,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.65,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:21.200073",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 229,
+        "action": "move_forward",
+        "dist_moved": 0.17054009437561035,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:21.234817",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 230,
+        "action": "move_forward",
+        "dist_moved": 0.17054013907909393,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:21.273074",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 231,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:25.124214",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 231,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.85,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:25.174033",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 232,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:25.208057",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 233,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:25.245905",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 234,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:29.070196",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 234,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.85,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:29.123101",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 235,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:29.161377",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 236,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:29.199875",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 237,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:33.022579",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 237,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.85,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:33.078823",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 238,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:33.121807",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 239,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:33.157462",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 240,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:37.125519",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 240,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.85,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:37.171781",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 241,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:37.207762",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 242,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:37.246333",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 243,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:41.209346",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 243,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.85,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:41.258390",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 244,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:41.288165",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 245,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:41.316497",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 246,
+        "action": "move_forward",
+        "dist_moved": 0.23986481130123138,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:45.326984",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 246,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.85,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:45.373357",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 247,
+        "action": "move_forward",
+        "dist_moved": 0.16069674491882324,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:45.420548",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 248,
+        "action": "move_forward",
+        "dist_moved": 0.1606966257095337,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:45.455508",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 249,
+        "action": "move_forward",
+        "dist_moved": 0.1606966257095337,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:49.409168",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 249,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.85,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:49.451534",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 250,
+        "action": "move_forward",
+        "dist_moved": 0.16069674491882324,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:49.482563",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 251,
+        "action": "move_forward",
+        "dist_moved": 0.1606966257095337,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:49.513740",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 252,
+        "action": "move_forward",
+        "dist_moved": 0.16069674491882324,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:53.409362",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 252,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.85,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:53.458444",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 253,
+        "action": "move_forward",
+        "dist_moved": 0.1606966257095337,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:53.495667",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 254,
+        "action": "move_forward",
+        "dist_moved": 0.16069674491882324,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:53.528788",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 255,
+        "action": "move_forward",
+        "dist_moved": 0.16069674491882324,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:57.368832",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 255,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.85,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:57.415808",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 256,
+        "action": "move_forward",
+        "dist_moved": 0.16069674491882324,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:57.447767",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 257,
+        "action": "move_forward",
+        "dist_moved": 0.197323739528656,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:33:57.480906",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 258,
+        "action": "move_forward",
+        "dist_moved": 0.20451945066452026,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:01.294394",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 258,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.85,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:01.336958",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 259,
+        "action": "move_forward",
+        "dist_moved": 0.2696593701839447,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:01.368183",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 260,
+        "action": "move_forward",
+        "dist_moved": 0.26138877868652344,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:01.405119",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 261,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:05.382811",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 261,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.85,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:05.433850",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 262,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:05.467674",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 263,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:05.505083",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 264,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:09.482525",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 264,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.85,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:09.532409",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 265,
+        "action": "move_forward",
+        "dist_moved": 0.24999992549419403,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:09.564726",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 266,
+        "action": "move_forward",
+        "dist_moved": 0.2499997764825821,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:09.601841",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 267,
+        "action": "move_forward",
+        "dist_moved": 0.2499997764825821,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:13.570965",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 267,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.85,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:13.608765",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 268,
+        "action": "move_forward",
+        "dist_moved": 0.2499997764825821,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:13.636948",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 269,
+        "action": "move_forward",
+        "dist_moved": 0.2499997764825821,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:13.663576",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 270,
+        "action": "move_forward",
+        "dist_moved": 0.19248618185520172,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:17.527081",
+      "kind": "vlm_decision",
+      "importance": 0.35,
+      "source": "vlm",
+      "data": {
+        "step": 270,
+        "current_room": "S101",
+        "current_floor": 1,
+        "confidence": 0.85,
+        "subgoal": "完成第一跑楼梯并到达楼梯间平台",
+        "actions": [
+          "move_forward",
+          "move_forward",
+          "move_forward"
+        ],
+        "in_stairwell": true,
+        "floorplan_floor_used": 0,
+        "collision": {
+          "had_collision": false,
+          "consecutive": 0,
+          "action": null
+        }
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:17.575106",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 271,
+        "action": "move_forward",
+        "dist_moved": 0.1915111541748047,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:17.609001",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 272,
+        "action": "move_forward",
+        "dist_moved": 0.1915111541748047,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    },
+    {
+      "ts": "2025-12-15T17:34:17.642900",
+      "kind": "executed_action",
+      "importance": 0.2,
+      "source": "env",
+      "data": {
+        "step": 273,
+        "action": "move_forward",
+        "dist_moved": 0.1915111541748047,
+        "had_collision": false,
+        "consecutive": 0,
+        "room_hint": "S101",
+        "floor_hint": 1,
+        "in_stairwell": true,
+        "floor_anchor": 0
+      }
+    }
+  ]
+}

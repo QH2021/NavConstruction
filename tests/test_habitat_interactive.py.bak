@@ -1,0 +1,525 @@
+#!/usr/bin/env python3
+"""
+Habitat环境交互式测试
+支持键盘鼠标控制，可视化界面，用于人工判断场景质量
+
+控制说明:
+- W/↑: 前进 (move_forward)
+- A/←: 左转 (turn_left)
+- D/→: 右转 (turn_right)
+- S/↓: 后退 (move_backward)
+- R: 重置场景
+- Q/ESC: 退出
+- SPACE: 暂停/继续
+- 1: 显示前置摄像头
+- 2: 显示后置摄像头
+- 3: 显示双摄像头 (默认)
+"""
+
+import sys
+import os
+from pathlib import Path
+
+# 添加项目根目录到路径
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
+
+import cv2
+import numpy as np
+import logging
+from datetime import datetime
+from typing import Dict, Any, Optional, Tuple
+import json
+
+# 导入项目模块
+from src.config_loader import UnifiedConfigLoader
+from src.habitat_integration import EnvironmentFactory
+
+
+class HabitatInteractiveTester:
+    """Habitat环境交互式测试器"""
+
+    def __init__(self, config_dir: str = "configs"):
+        """初始化测试器
+
+        Args:
+            config_dir: 配置文件目录
+        """
+        self.config_dir = Path(config_dir)
+        self.logger = self._setup_logger()
+
+        # 加载配置
+        self.loader = UnifiedConfigLoader(config_dir=str(self.config_dir))
+        self.env_config = self.loader.load_environment_config()
+
+        # 创建环境
+        self.env = None
+        self.env_type = None
+
+        # 可视化状态
+        self.paused = False
+        self.camera_mode = 3  # 1=前置, 2=后置, 3=双摄
+        self.show_info = True
+
+        # 统计信息
+        self.total_steps = 0
+        self.action_counts = {
+            "move_forward": 0,
+            "move_backward": 0,
+            "turn_left": 0,
+            "turn_right": 0,
+        }
+
+        # 窗口名称
+        self.window_name = "Habitat Interactive Test - Press Q to Quit"
+
+        self.logger.info("✅ Habitat交互式测试器初始化完成")
+        self.logger.info(f"📂 配置目录: {self.config_dir}")
+        self.logger.info(f"🗺️  场景文件: {self.env_config.get('scene', {}).get('path')}")
+        self.logger.info(
+            f"🤖 机器人URDF: {self.env_config.get('robot', {}).get('urdf_path')}"
+        )
+
+    def _setup_logger(self) -> logging.Logger:
+        """设置日志记录器"""
+        logger = logging.getLogger("HabitatInteractiveTest")
+        logger.setLevel(logging.INFO)
+
+        # 控制台处理器
+        console_handler = logging.StreamHandler()
+        console_handler.setLevel(logging.INFO)
+        formatter = logging.Formatter(
+            "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+            datefmt="%Y-%m-%d %H:%M:%S",
+        )
+        console_handler.setFormatter(formatter)
+        logger.addHandler(console_handler)
+
+        return logger
+
+    def create_environment(self) -> bool:
+        """创建Habitat环境
+
+        Returns:
+            创建是否成功
+        """
+        try:
+            self.logger.info("🔄 正在创建Habitat环境...")
+
+            # 使用EnvironmentFactory创建环境
+            factory = EnvironmentFactory(logger=self.logger)
+
+            # 从环境配置构建所需的配置字典
+            scene_config = self.env_config.get("scene", {})
+            robot_config = self.env_config.get("robot", {})
+            sensor_config = self.env_config.get("sensors", {})
+            action_config = self.env_config.get("actions", {})
+            agent_config = self.env_config.get("agent", {})
+            physics_config = self.env_config.get("physics", {})
+
+            # 构建环境配置
+            config = {
+                "scene_path": scene_config.get("path", ""),
+                "agent_config": {
+                    "height": agent_config.get("height", 0.55),
+                    "radius": agent_config.get("radius", 0.28),
+                    "enable_front_camera": sensor_config.get("front_camera", {}).get(
+                        "enabled", True
+                    ),
+                    "enable_back_camera": sensor_config.get("back_camera", {}).get(
+                        "enabled", True
+                    ),
+                    "front_camera_resolution": sensor_config.get(
+                        "front_camera", {}
+                    ).get("resolution", [720, 1280]),
+                    "front_camera_hfov": sensor_config.get("front_camera", {}).get(
+                        "hfov", 102.0
+                    ),
+                    "back_camera_resolution": sensor_config.get("back_camera", {}).get(
+                        "resolution", [480, 640]
+                    ),
+                    "back_camera_hfov": sensor_config.get("back_camera", {}).get(
+                        "hfov", 90.0
+                    ),
+                    "back_camera_position": sensor_config.get("back_camera", {}).get(
+                        "position", [-0.3, 0.3, 0.0]
+                    ),
+                    "back_camera_orientation": sensor_config.get("back_camera", {}).get(
+                        "orientation", [-0.3, 0.0, 0.0]
+                    ),
+                    "action_forward_amount": action_config.get("move_forward", {}).get(
+                        "amount", 0.25
+                    ),
+                    "action_turn_left_amount": action_config.get("turn_left", {}).get(
+                        "amount", 10.0
+                    ),
+                    "action_turn_right_amount": action_config.get("turn_right", {}).get(
+                        "amount", 10.0
+                    ),
+                },
+                "sim_config": {
+                    "enable_physics": physics_config.get("enabled", True),
+                    "physics_config_file": "data/default.physics_config.json",
+                },
+                "env_config": self.env_config,  # 传递完整的环境配置
+                "enable_visualization": True,  # 启用可视化
+            }
+
+            self.env, self.env_type = factory.create_environment(config)
+
+            if self.env is None:
+                self.logger.error("❌ 环境创建失败")
+                return False
+
+            self.logger.info(f"✅ 环境创建成功: {self.env_type}")
+
+            # 重置环境
+            obs = self.env.reset()
+            self.logger.info(f"✅ 环境已重置")
+            self.logger.info(f"📊 观测键: {list(obs.keys())}")
+
+            return True
+
+        except Exception as e:
+            self.logger.error(f"❌ 环境创建失败: {e}")
+            import traceback
+
+            self.logger.error(traceback.format_exc())
+            return False
+
+    def _process_keyboard_input(self, key: int) -> Optional[str]:
+        """处理键盘输入
+
+        Args:
+            key: OpenCV键码
+
+        Returns:
+            动作名称，如果退出返回None
+        """
+        action = None
+
+        # 退出键
+        if key in [ord("q"), ord("Q"), 27]:  # Q或ESC
+            return "QUIT"
+
+        # 重置
+        elif key in [ord("r"), ord("R")]:
+            return "RESET"
+
+        # 暂停/继续
+        elif key == 32:  # SPACE
+            self.paused = not self.paused
+            status = "暂停" if self.paused else "继续"
+            self.logger.info(f"⏸️  {status}")
+            return "PAUSE"
+
+        # 摄像头模式切换
+        elif key == ord("1"):
+            self.camera_mode = 1
+            self.logger.info("📷 切换到前置摄像头")
+            return "CAMERA"
+        elif key == ord("2"):
+            self.camera_mode = 2
+            self.logger.info("📷 切换到后置摄像头")
+            return "CAMERA"
+        elif key == ord("3"):
+            self.camera_mode = 3
+            self.logger.info("📷 切换到双摄像头")
+            return "CAMERA"
+
+        # 移动控制 (与VLM动作一致)
+        elif key in [ord("w"), ord("W"), 82]:  # W或↑
+            action = "move_forward"
+        elif key in [ord("s"), ord("S"), 84]:  # S或↓
+            action = "move_backward"
+        elif key in [ord("a"), ord("A"), 81]:  # A或←
+            action = "turn_left"
+        elif key in [ord("d"), ord("D"), 83]:  # D或→
+            action = "turn_right"
+
+        return action
+
+    def _create_visualization(self, obs: Dict[str, Any]) -> np.ndarray:
+        """创建可视化图像
+
+        Args:
+            obs: 观测数据
+
+        Returns:
+            可视化图像
+        """
+        # 提取RGB图像
+        rgb_front = obs.get("rgb_front")
+        rgb_back = obs.get("rgb_back")
+
+        # 确保图像存在且格式正确
+        if rgb_front is None:
+            rgb_front = np.zeros((720, 1280, 3), dtype=np.uint8)
+        if rgb_back is None:
+            rgb_back = np.zeros((480, 640, 3), dtype=np.uint8)
+
+        # 转换为uint8
+        if rgb_front.dtype != np.uint8:
+            rgb_front = (rgb_front * 255).astype(np.uint8)
+        if rgb_back.dtype != np.uint8:
+            rgb_back = (rgb_back * 255).astype(np.uint8)
+
+        # 根据摄像头模式选择显示
+        if self.camera_mode == 1:
+            # 仅前置
+            display = rgb_front.copy()
+        elif self.camera_mode == 2:
+            # 仅后置（放大到与前置相同高度）
+            scale = rgb_front.shape[0] / rgb_back.shape[0]
+            new_width = int(rgb_back.shape[1] * scale)
+            display = cv2.resize(rgb_back, (new_width, rgb_front.shape[0]))
+        else:
+            # 双摄（上下拼接）
+            # 将后置摄像头宽度调整到与前置相同
+            back_resized = cv2.resize(rgb_back, (rgb_front.shape[1], rgb_back.shape[0]))
+            display = np.vstack([rgb_front, back_resized])
+
+        # 添加信息覆盖层
+        if self.show_info:
+            display = self._add_info_overlay(display, obs)
+
+        return display
+
+    def _add_info_overlay(self, img: np.ndarray, obs: Dict[str, Any]) -> np.ndarray:
+        """在图像上添加信息覆盖层
+
+        Args:
+            img: 原始图像
+            obs: 观测数据
+
+        Returns:
+            添加信息后的图像
+        """
+        overlay = img.copy()
+
+        # 提取位置信息
+        agent_pos = obs.get("agent_pos", [0, 0, 0])
+        agent_rot = obs.get("agent_rot", [0, 0, 0, 1])
+
+        # 计算朝向角度 (从四元数)
+        if len(agent_rot) == 4:
+            qw, qx, qy, qz = agent_rot
+            # 计算yaw角度
+            yaw = np.arctan2(2.0 * (qw * qz + qx * qy), 1.0 - 2.0 * (qy * qy + qz * qz))
+            yaw_deg = np.degrees(yaw)
+        else:
+            yaw_deg = 0.0
+
+        # 半透明背景
+        overlay_bg = overlay.copy()
+        cv2.rectangle(overlay_bg, (10, 10), (500, 200), (0, 0, 0), -1)
+        cv2.addWeighted(overlay_bg, 0.6, overlay, 0.4, 0, overlay)
+
+        # 文字信息
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        font_scale = 0.6
+        font_thickness = 2
+        color = (255, 255, 255)
+
+        y_offset = 35
+        line_height = 25
+
+        # 显示信息
+        texts = [
+            f"Steps: {self.total_steps}",
+            f"Position: ({agent_pos[0]:.2f}, {agent_pos[1]:.2f}, {agent_pos[2]:.2f})",
+            f"Rotation: {yaw_deg:.1f} deg",
+            f"Camera: {'Front' if self.camera_mode == 1 else 'Back' if self.camera_mode == 2 else 'Dual'}",
+            f"Status: {'PAUSED' if self.paused else 'RUNNING'}",
+        ]
+
+        for i, text in enumerate(texts):
+            cv2.putText(
+                overlay,
+                text,
+                (20, y_offset + i * line_height),
+                font,
+                font_scale,
+                color,
+                font_thickness,
+            )
+
+        # 显示动作统计（右上角）
+        action_y = 35
+        cv2.rectangle(
+            overlay, (img.shape[1] - 260, 10), (img.shape[1] - 10, 160), (0, 0, 0), -1
+        )
+
+        action_texts = [
+            "Action Counts:",
+            f"Forward: {self.action_counts['move_forward']}",
+            f"Backward: {self.action_counts['move_backward']}",
+            f"Left: {self.action_counts['turn_left']}",
+            f"Right: {self.action_counts['turn_right']}",
+        ]
+
+        for i, text in enumerate(action_texts):
+            cv2.putText(
+                overlay,
+                text,
+                (img.shape[1] - 250, action_y + i * line_height),
+                font,
+                0.5,
+                color,
+                1,
+            )
+
+        # 显示控制说明（底部）
+        help_y = img.shape[0] - 100
+        cv2.rectangle(
+            overlay,
+            (10, help_y - 30),
+            (img.shape[1] - 10, img.shape[0] - 10),
+            (0, 0, 0),
+            -1,
+        )
+
+        help_texts = [
+            "Controls: W/↑=Forward  S/↓=Backward  A/←=TurnLeft  D/→=TurnRight",
+            "R=Reset  SPACE=Pause  1/2/3=Camera  Q/ESC=Quit",
+        ]
+
+        for i, text in enumerate(help_texts):
+            cv2.putText(overlay, text, (20, help_y + i * 25), font, 0.5, (0, 255, 0), 1)
+
+        return overlay
+
+    def run(self):
+        """运行交互式测试"""
+        # 创建环境
+        if not self.create_environment():
+            self.logger.error("❌ 无法创建环境，测试终止")
+            return
+
+        # 创建窗口
+        cv2.namedWindow(self.window_name, cv2.WINDOW_NORMAL)
+        cv2.resizeWindow(self.window_name, 1280, 960)
+
+        self.logger.info("\n" + "=" * 60)
+        self.logger.info("🎮 交互式测试开始")
+        self.logger.info("=" * 60)
+        self.logger.info("控制说明:")
+        self.logger.info("  W/↑ : 前进 (move_forward)")
+        self.logger.info("  S/↓ : 后退 (move_backward)")
+        self.logger.info("  A/← : 左转 (turn_left)")
+        self.logger.info("  D/→ : 右转 (turn_right)")
+        self.logger.info("  R   : 重置场景")
+        self.logger.info("  SPACE: 暂停/继续")
+        self.logger.info("  1/2/3: 切换摄像头视图")
+        self.logger.info("  Q/ESC: 退出")
+        self.logger.info("=" * 60 + "\n")
+
+        # 获取初始观测
+        obs = self.env.reset()
+
+        running = True
+        while running:
+            # 显示当前状态
+            if not self.paused:
+                display_img = self._create_visualization(obs)
+                cv2.imshow(
+                    self.window_name, cv2.cvtColor(display_img, cv2.COLOR_RGB2BGR)
+                )
+
+            # 等待键盘输入 (30fps)
+            key = cv2.waitKey(33)
+
+            if key == -1:
+                continue
+
+            # 处理输入
+            action = self._process_keyboard_input(key)
+
+            if action == "QUIT":
+                self.logger.info("👋 退出测试")
+                running = False
+
+            elif action == "RESET":
+                self.logger.info("🔄 重置环境")
+                obs = self.env.reset()
+                self.total_steps = 0
+                self.action_counts = {k: 0 for k in self.action_counts}
+
+            elif action == "PAUSE" or action == "CAMERA":
+                # 这些已经在_process_keyboard_input中处理
+                pass
+
+            elif action and action in [
+                "move_forward",
+                "move_backward",
+                "turn_left",
+                "turn_right",
+            ]:
+                if not self.paused:
+                    # 执行动作
+                    obs, info = self.env.step(action)
+                    self.total_steps += 1
+                    self.action_counts[action] += 1
+
+                    # 记录详细信息
+                    agent_pos = obs.get("agent_pos", [0, 0, 0])
+                    self.logger.info(
+                        f"🎮 步骤 {self.total_steps}: {action:15s} | "
+                        f"位置: ({agent_pos[0]:6.2f}, {agent_pos[1]:6.2f}, {agent_pos[2]:6.2f})"
+                    )
+
+        # 清理
+        cv2.destroyAllWindows()
+        if self.env:
+            self.env.close()
+
+        # 显示统计
+        self.logger.info("\n" + "=" * 60)
+        self.logger.info("📊 测试统计")
+        self.logger.info("=" * 60)
+        self.logger.info(f"总步数: {self.total_steps}")
+        self.logger.info(f"前进: {self.action_counts['move_forward']}")
+        self.logger.info(f"后退: {self.action_counts['move_backward']}")
+        self.logger.info(f"左转: {self.action_counts['turn_left']}")
+        self.logger.info(f"右转: {self.action_counts['turn_right']}")
+        self.logger.info("=" * 60)
+        self.logger.info("✅ 测试完成")
+
+
+def main():
+    """主函数"""
+    print("\n" + "=" * 70)
+    print("Habitat环境交互式测试")
+    print("=" * 70)
+    print("说明: 本测试用于人工判断Habitat场景是否存在问题")
+    print("      使用键盘控制机器狗，观察场景渲染、碰撞检测、导航等功能")
+    print("=" * 70 + "\n")
+
+    # 检查Habitat是否可用
+    try:
+        import habitat_sim
+
+        print(
+            f"✅ Habitat-sim 已安装 (v{getattr(habitat_sim, '__version__', 'unknown')})"
+        )
+    except ImportError:
+        print("❌ 未安装 Habitat-sim，无法运行测试")
+        print("   请先安装: conda install habitat-sim -c conda-forge -c aihabitat")
+        return
+
+    # 创建并运行测试器
+    tester = HabitatInteractiveTester(config_dir="configs")
+
+    try:
+        tester.run()
+    except KeyboardInterrupt:
+        print("\n⚠️  测试被用户中断")
+    except Exception as e:
+        print(f"\n❌ 测试出错: {e}")
+        import traceback
+
+        traceback.print_exc()
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,363 @@
+2025-12-15 17:26:18,014 - EndToEndTest - INFO - ================================================================================
+2025-12-15 17:26:18,014 - EndToEndTest - INFO - 端到端测试开始
+2025-12-15 17:26:18,014 - EndToEndTest - INFO - ================================================================================
+2025-12-15 17:26:18,014 - EndToEndTest - INFO - 
+================================================================================
+2025-12-15 17:26:18,015 - EndToEndTest - INFO - 测试: test_01_config_loading
+2025-12-15 17:26:18,015 - EndToEndTest - INFO - ================================================================================
+2025-12-15 17:26:18,015 - EndToEndTest - INFO - 【测试1】配置文件加载验证
+2025-12-15 17:26:18,015 - config_loader - INFO - 配置加载器初始化: config_dir=configs
+2025-12-15 17:26:18,030 - config_loader - INFO - 未找到 environment_config.yaml/json，已从 unified_config.yaml 派生配置
+2025-12-15 17:26:18,046 - config_loader - INFO - 未找到 agent_config.yaml/json，已从 unified_config.yaml 派生配置
+2025-12-15 17:26:18,060 - config_loader - INFO - 未找到 vlm_config.yaml/json，已从 unified_config.yaml 派生配置
+2025-12-15 17:26:18,075 - config_loader - INFO - 未找到 paths_config.yaml/json，已从 unified_config.yaml 派生配置
+2025-12-15 17:26:18,090 - config_loader - INFO - 未找到 system_config.yaml/json，已从 unified_config.yaml 派生配置
+2025-12-15 17:26:18,090 - EndToEndTest - INFO - 结果: PASS
+2025-12-15 17:26:18,090 - EndToEndTest - INFO - 详情: {
+  "configs_loaded": [
+    "environment",
+    "agent",
+    "vlm",
+    "paths",
+    "system"
+  ],
+  "scene_path": "./data/scene_datasets/habitat-test-scenes/3dExport1212f.glb",
+  "robot_urdf": "./data/robots/hab_spot_arm/urdf/hab_spot_arm.urdf",
+  "checks": {
+    "场景路径配置": true,
+    "机器人URDF配置": true,
+    "前置摄像头配置": true,
+    "后置摄像头配置": true,
+    "Agent1配置": true,
+    "Agent2配置": true,
+    "VLM API配置": true
+  }
+}
+2025-12-15 17:26:18,090 - EndToEndTest - INFO - 
+================================================================================
+2025-12-15 17:26:18,090 - EndToEndTest - INFO - 测试: test_02_scene_files_existence
+2025-12-15 17:26:18,090 - EndToEndTest - INFO - ================================================================================
+2025-12-15 17:26:18,090 - EndToEndTest - INFO - 【测试2】场景文件存在性验证
+2025-12-15 17:26:18,090 - config_loader - INFO - 配置加载器初始化: config_dir=configs
+2025-12-15 17:26:18,106 - config_loader - INFO - 未找到 environment_config.yaml/json，已从 unified_config.yaml 派生配置
+2025-12-15 17:26:18,107 - EndToEndTest - INFO - 结果: PASS
+2025-12-15 17:26:18,107 - EndToEndTest - INFO - 详情: {
+  "scene_path": "./data/scene_datasets/habitat-test-scenes/3dExport1212f.glb",
+  "robot_urdf": "./data/robots/hab_spot_arm/urdf/hab_spot_arm.urdf",
+  "files_check": {
+    "场景文件": true,
+    "机器人URDF": true
+  }
+}
+2025-12-15 17:26:18,107 - EndToEndTest - INFO - 
+================================================================================
+2025-12-15 17:26:18,107 - EndToEndTest - INFO - 测试: test_03_mock_environment_creation
+2025-12-15 17:26:18,107 - EndToEndTest - INFO - ================================================================================
+2025-12-15 17:26:18,107 - EndToEndTest - INFO - 【测试3】Mock环境创建和传感器验证
+2025-12-15 17:26:18,107 - MockEnvTest - INFO - ✅ 虚拟环境Mock已创建（用于测试）
+2025-12-15 17:26:18,107 - MockEnvTest - INFO - 虚拟环境已重置，起始位置: [0. 0. 0.]
+2025-12-15 17:26:18,113 - EndToEndTest - INFO - 结果: PASS
+2025-12-15 17:26:18,113 - EndToEndTest - INFO - 详情: {
+  "observations_check": {
+    "rgb_front存在": true,
+    "rgb_back存在": true,
+    "agent_pos存在": true,
+    "agent_rot存在": true,
+    "rgb_front形状正确": true,
+    "rgb_back形状正确": true,
+    "agent_pos维度正确": true
+  },
+  "step_works": true,
+  "navigable_map_available": true,
+  "navigable_map_shape": [
+    200,
+    200
+  ]
+}
+2025-12-15 17:26:18,113 - MockEnvTest - INFO - 虚拟环境已关闭
+2025-12-15 17:26:18,114 - EndToEndTest - INFO - 
+================================================================================
+2025-12-15 17:26:18,114 - EndToEndTest - INFO - 测试: test_04_habitat_environment_creation
+2025-12-15 17:26:18,114 - EndToEndTest - INFO - ================================================================================
+2025-12-15 17:26:18,114 - EndToEndTest - INFO - 【测试4】Habitat环境创建测试（可选）
+2025-12-15 17:26:18,114 - config_loader - INFO - 配置加载器初始化: config_dir=configs
+2025-12-15 17:26:18,130 - config_loader - INFO - 未找到 environment_config.yaml/json，已从 unified_config.yaml 派生配置
+2025-12-15 17:26:18,902 - EndToEndTest - INFO - 结果: SKIP
+2025-12-15 17:26:18,902 - EndToEndTest - INFO - 详情: {
+  "reason": "Habitat-sim EGL/GL context 不可用（子进程探测失败）",
+  "scene_path": "./data/scene_datasets/habitat-test-scenes/3dExport1212f.glb"
+}
+2025-12-15 17:26:18,902 - EndToEndTest - INFO - 
+================================================================================
+2025-12-15 17:26:18,902 - EndToEndTest - INFO - 测试: test_05_scene_graph_path_planning
+2025-12-15 17:26:18,902 - EndToEndTest - INFO - ================================================================================
+2025-12-15 17:26:18,902 - EndToEndTest - INFO - 【测试5】场景图和A*路径规划测试
+2025-12-15 17:26:18,965 - scene_graph - INFO - ✅ 加载Excel文件: data/door_table.xlsx, data/component_table.xlsx
+2025-12-15 17:26:18,969 - scene_graph - INFO - ✅ 场景图已构建: 55 个房间, 62 条边
+2025-12-15 17:26:18,969 - scene_graph - INFO - ✅ A*算法找到 3 条候选路径
+2025-12-15 17:26:18,969 - scene_graph - INFO -    路径1: Start01 → S101 → S201 → S301 → H303 → H302 → H305 → H306 → R309 (8步)
+2025-12-15 17:26:18,969 - scene_graph - INFO -    路径2: Start01 → S101 → H103 → H102 → H105 → S102 → S202 → S302 → H305 → H306 → R309 (10步)
+2025-12-15 17:26:18,969 - scene_graph - INFO -    路径3: Start01 → S101 → S201 → H203 → H202 → H205 → S202 → S302 → H305 → H306 → R309 (10步)
+2025-12-15 17:26:18,970 - EndToEndTest - INFO - 结果: PASS
+2025-12-15 17:26:18,970 - EndToEndTest - INFO - 详情: {
+  "checks": {
+    "场景图创建成功": true,
+    "找到候选路径": true,
+    "路径数量正确": true
+  },
+  "paths_found": 3,
+  "path_details": [
+    {
+      "path_id": 1,
+      "rooms": [
+        "Start01",
+        "S101",
+        "S201",
+        "S301",
+        "H303",
+        "H302",
+        "H305",
+        "H306",
+        "R309"
+      ],
+      "length": 9,
+      "cost": 8
+    },
+    {
+      "path_id": 2,
+      "rooms": [
+        "Start01",
+        "S101",
+        "H103",
+        "H102",
+        "H105",
+        "S102",
+        "S202",
+        "S302",
+        "H305",
+        "H306",
+        "R309"
+      ],
+      "length": 11,
+      "cost": 10
+    },
+    {
+      "path_id": 3,
+      "rooms": [
+        "Start01",
+        "S101",
+        "S201",
+        "H203",
+        "H202",
+        "H205",
+        "S202",
+        "S302",
+        "H305",
+        "H306",
+        "R309"
+      ],
+      "length": 11,
+      "cost": 10
+    }
+  ]
+}
+2025-12-15 17:26:18,970 - EndToEndTest - INFO - 
+================================================================================
+2025-12-15 17:26:18,970 - EndToEndTest - INFO - 测试: test_06_agent_initialization
+2025-12-15 17:26:18,970 - EndToEndTest - INFO - ================================================================================
+2025-12-15 17:26:18,970 - EndToEndTest - INFO - 【测试6】Agent初始化测试
+2025-12-15 17:26:18,972 - src.config_loader - INFO - 配置加载器初始化: config_dir=configs
+2025-12-15 17:26:18,988 - src.config_loader - INFO - 加载 YAML 配置: configs/unified_config.yaml
+2025-12-15 17:26:18,988 - src.config_loader - INFO - ✅ 统一配置文件加载成功
+2025-12-15 17:26:18,989 - src.config_loader - INFO - 配置加载器初始化: config_dir=configs
+2025-12-15 17:26:19,004 - src.config_loader - INFO - 加载 YAML 配置: configs/unified_config.yaml
+2025-12-15 17:26:19,004 - src.config_loader - INFO - ✅ 统一配置文件加载成功
+2025-12-15 17:26:19,004 - EndToEndTest - INFO - 结果: PASS
+2025-12-15 17:26:19,004 - EndToEndTest - INFO - 详情: {
+  "checks": {
+    "Agent1创建成功": true,
+    "Agent2创建成功": true,
+    "Agent1有记忆": true,
+    "Agent2有记忆": true,
+    "Agent1有VLM配置": true,
+    "Agent1有输出目录": true
+  },
+  "memory_works": true,
+  "stats_works": true,
+  "agent1_stats": {
+    "agent_id": "Agent1",
+    "success_count": 0,
+    "failure_count": 0,
+    "memory_size": 1,
+    "last_action": null
+  }
+}
+2025-12-15 17:26:19,005 - EndToEndTest - INFO - 
+================================================================================
+2025-12-15 17:26:19,005 - EndToEndTest - INFO - 测试: test_07_full_navigation_mock
+2025-12-15 17:26:19,005 - EndToEndTest - INFO - ================================================================================
+2025-12-15 17:26:19,005 - EndToEndTest - INFO - 【测试7】完整导航流程测试（Mock环境）
+2025-12-15 17:26:19,005 - src.config_loader - INFO - 配置加载器初始化: config_dir=configs
+2025-12-15 17:26:19,020 - src.config_loader - INFO - 加载 YAML 配置: configs/unified_config.yaml
+2025-12-15 17:26:19,021 - src.config_loader - INFO - ✅ 统一配置文件加载成功
+2025-12-15 17:26:19,043 - scene_graph - INFO - ✅ 加载Excel文件: ./data/door_table.xlsx, ./data/component_table.xlsx
+2025-12-15 17:26:19,046 - scene_graph - INFO - ✅ 场景图已构建: 55 个房间, 62 条边
+2025-12-15 17:26:19,046 - src.config_loader - INFO - 配置加载器初始化: config_dir=configs
+2025-12-15 17:26:19,061 - src.config_loader - INFO - 加载 YAML 配置: configs/unified_config.yaml
+2025-12-15 17:26:19,062 - src.config_loader - INFO - ✅ 统一配置文件加载成功
+2025-12-15 17:26:19,062 - navigation_system - INFO - ✅ 导航系统初始化完成
+2025-12-15 17:26:19,062 - navigation_system - INFO -    输出目录: output/run_20251215_172619
+2025-12-15 17:26:19,062 - navigation_system - INFO -    启用Agent2: False
+2025-12-15 17:26:19,062 - navigation_system - INFO -    启用前置Depth: True
+2025-12-15 17:26:19,063 - NavTest - INFO - ✅ 虚拟环境Mock已创建（用于测试）
+2025-12-15 17:26:19,063 - navigation_system - INFO - ======================================================================
+2025-12-15 17:26:19,063 - navigation_system - INFO - 🚀 阶段2: 逐步导航（VLM批量决策）
+2025-12-15 17:26:19,063 - navigation_system - INFO - ======================================================================
+2025-12-15 17:26:19,064 - video_recorder - INFO - ✅ 后置相机录制器初始化: tests/test_output_e2e/navigation_test/videos/back_camera_20251215_172619.mp4
+2025-12-15 17:26:19,064 - video_recorder - INFO -    帧率: 30 fps, 尺寸: (1280, 960)
+2025-12-15 17:26:19,065 - NavTest - INFO - 虚拟环境已重置，起始位置: [0. 0. 0.]
+2025-12-15 17:26:19,068 - navigation_system - INFO - 导航路径: Start01 → S101 → R309
+2025-12-15 17:26:19,068 - navigation_system - INFO - 路径长度: 3 个房间
+2025-12-15 17:26:19,068 - navigation_system - INFO - 最大步数: 10
+
+2025-12-15 17:26:19,068 - navigation_system - INFO - 
+============================================================
+步骤 1/10
+============================================================
+2025-12-15 17:26:19,076 - navigation_system - INFO - 📍 当前房间: Start01
+2025-12-15 17:26:19,076 - navigation_system - INFO - 🎯 目标房间: R309
+2025-12-15 17:26:19,076 - navigation_system - INFO - 📊 路径进度: 1/3
+2025-12-15 17:26:19,078 - navigation_system - INFO - 
+🤖 Agent1 正在分析场景...
+2025-12-15 17:26:19,079 - navigation_system - INFO - 
+💡 VLM决策:
+2025-12-15 17:26:19,079 - navigation_system - INFO -    动作序列: ['move_forward', 'move_forward', 'turn_left', 'move_forward']
+2025-12-15 17:26:19,079 - navigation_system - INFO -    到达目标: False
+2025-12-15 17:26:19,079 - navigation_system - INFO -    推理: 测试批量动作
+2025-12-15 17:26:19,079 - navigation_system - INFO - 
+🎮 执行动作: move_forward
+2025-12-15 17:26:19,098 - navigation_system - INFO - 
+🎮 执行动作: move_forward
+2025-12-15 17:26:19,110 - navigation_system - INFO - 
+🎮 执行动作: turn_left
+2025-12-15 17:26:19,121 - navigation_system - INFO - 
+🎮 执行动作: move_forward
+2025-12-15 17:26:19,133 - navigation_system - INFO - 
+============================================================
+步骤 5/10
+============================================================
+2025-12-15 17:26:19,136 - navigation_system - INFO - 📍 当前房间: R309
+2025-12-15 17:26:19,136 - navigation_system - INFO - 🎯 目标房间: R309
+2025-12-15 17:26:19,136 - navigation_system - INFO - 📊 路径进度: 3/3
+2025-12-15 17:26:19,189 - navigation_system - INFO - 
+🤖 Agent1 正在分析场景...
+2025-12-15 17:26:19,189 - navigation_system - INFO - 
+💡 VLM决策:
+2025-12-15 17:26:19,189 - navigation_system - INFO -    动作序列: ['move_forward', 'move_forward', 'turn_left', 'move_forward']
+2025-12-15 17:26:19,189 - navigation_system - INFO -    到达目标: False
+2025-12-15 17:26:19,189 - navigation_system - INFO -    推理: 测试批量动作
+2025-12-15 17:26:19,189 - navigation_system - INFO - 
+🎮 执行动作: move_forward
+2025-12-15 17:26:19,199 - navigation_system - INFO - 
+🎮 执行动作: move_forward
+2025-12-15 17:26:19,210 - navigation_system - INFO - 
+🎮 执行动作: turn_left
+2025-12-15 17:26:19,219 - navigation_system - INFO - 
+🎮 执行动作: move_forward
+2025-12-15 17:26:19,227 - navigation_system - INFO - 
+============================================================
+步骤 9/10
+============================================================
+2025-12-15 17:26:19,230 - navigation_system - INFO - 📍 当前房间: R309
+2025-12-15 17:26:19,230 - navigation_system - INFO - 🎯 目标房间: R309
+2025-12-15 17:26:19,230 - navigation_system - INFO - 📊 路径进度: 3/3
+2025-12-15 17:26:19,282 - navigation_system - INFO - 
+🤖 Agent1 正在分析场景...
+2025-12-15 17:26:19,282 - navigation_system - INFO - 
+💡 VLM决策:
+2025-12-15 17:26:19,282 - navigation_system - INFO -    动作序列: ['move_forward', 'move_forward', 'turn_left', 'move_forward']
+2025-12-15 17:26:19,282 - navigation_system - INFO -    到达目标: False
+2025-12-15 17:26:19,282 - navigation_system - INFO -    推理: 测试批量动作
+2025-12-15 17:26:19,282 - navigation_system - INFO - 
+🎮 执行动作: move_forward
+2025-12-15 17:26:19,292 - navigation_system - INFO - 
+🎮 执行动作: move_forward
+2025-12-15 17:26:19,304 - video_recorder - INFO - ✅ 视频已保存: tests/test_output_e2e/navigation_test/videos/back_camera_20251215_172619.mp4
+2025-12-15 17:26:19,305 - navigation_system - INFO - ✅ 导航指标和VLM记录已保存: tests/test_output_e2e/navigation_test/metrics/metrics_20251215_172619.json
+2025-12-15 17:26:19,306 - EndToEndTest - INFO - 结果: PASS
+2025-12-15 17:26:19,306 - EndToEndTest - INFO - 详情: {
+  "checks": {
+    "Agent1被调用": true,
+    "环境执行了动作": true,
+    "RGB前置图像已保存": true,
+    "RGB后置图像已保存": true,
+    "视频文件已创建": true
+  },
+  "total_steps": 10,
+  "front_images_count": 3,
+  "back_images_count": 10,
+  "videos_count": 1,
+  "agent1_call_count": 3
+}
+2025-12-15 17:26:19,306 - NavTest - INFO - 虚拟环境已关闭
+2025-12-15 17:26:19,306 - EndToEndTest - INFO - 
+================================================================================
+2025-12-15 17:26:19,306 - EndToEndTest - INFO - 测试: test_08_vlm_io_recording
+2025-12-15 17:26:19,306 - EndToEndTest - INFO - ================================================================================
+2025-12-15 17:26:19,306 - EndToEndTest - INFO - 【测试8】VLM输入输出记录测试
+2025-12-15 17:26:19,306 - src.config_loader - INFO - 配置加载器初始化: config_dir=configs
+2025-12-15 17:26:19,320 - src.config_loader - INFO - 加载 YAML 配置: configs/unified_config.yaml
+2025-12-15 17:26:19,321 - src.config_loader - INFO - ✅ 统一配置文件加载成功
+2025-12-15 17:26:19,321 - agents - INFO - Agent1 VLM调用 (尝试 1/3)
+2025-12-15 17:26:19,321 - agents - INFO - ✅ Agent1 VLM响应成功 (耗时 0.00s)
+2025-12-15 17:26:19,422 - EndToEndTest - INFO - 结果: PASS
+2025-12-15 17:26:19,423 - EndToEndTest - INFO - 详情: {
+  "checks": {
+    "VLM调用成功": true,
+    "VLM记录文件创建": true,
+    "VLM记录包含records": true
+  },
+  "records_count": 1,
+  "vlm_io_sample": {
+    "timestamp": "2025-12-15T17:26:19.321837",
+    "agent_id": "Agent1",
+    "attempt": 1,
+    "input": {
+      "prompt": "Test prompt for navigation",
+      "num_images": 1,
+      "images_meta": [
+        {
+          "index": 0,
+          "data_url_len": 38,
+          "mime": "image/jpeg"
+        }
+      ]
+    },
+    "output": {
+      "text": "{\"actions\": [\"move_forward\"], \"reached_goal\": false, \"reasoning\": \"test\"}"
+    },
+    "meta": {
+      "vlm_url": "http://localhost:8000/v1/chat/completions",
+      "model": "./model/Qwen3-VL-8B-Instruct",
+      "timeout": {
+        "connect": 10.0,
+        "read": 60.0
+      },
+      "max_tokens": 1024,
+      "temperature": 0.7,
+      "http_status": 200,
+      "elapsed_s": 2.8848648071289062e-05,
+      "trace_meta": {}
+    }
+  }
+}
+2025-12-15 17:26:19,423 - EndToEndTest - INFO - 
+================================================================================
+2025-12-15 17:26:19,423 - EndToEndTest - INFO - 生成测试报告
+2025-12-15 17:26:19,423 - EndToEndTest - INFO - ================================================================================
+2025-12-15 17:26:19,425 - EndToEndTest - INFO - 测试报告已保存: tests/test_output_e2e/TEST_REPORT.md
+2025-12-15 17:26:19,425 - EndToEndTest - INFO - JSON报告: tests/test_output_e2e/test_report.json
+2025-12-15 17:26:19,425 - EndToEndTest - INFO - 
+================================================================================
+2025-12-15 17:26:19,425 - EndToEndTest - INFO - 测试完成 - 通过: 7/8
+2025-12-15 17:26:19,425 - EndToEndTest - INFO - ================================================================================

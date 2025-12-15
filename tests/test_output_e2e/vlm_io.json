@@ -1,0 +1,36 @@
+{
+  "records": [
+    {
+      "timestamp": "2025-12-15T17:26:19.321837",
+      "agent_id": "Agent1",
+      "attempt": 1,
+      "input": {
+        "prompt": "Test prompt for navigation",
+        "num_images": 1,
+        "images_meta": [
+          {
+            "index": 0,
+            "data_url_len": 38,
+            "mime": "image/jpeg"
+          }
+        ]
+      },
+      "output": {
+        "text": "{\"actions\": [\"move_forward\"], \"reached_goal\": false, \"reasoning\": \"test\"}"
+      },
+      "meta": {
+        "vlm_url": "http://localhost:8000/v1/chat/completions",
+        "model": "./model/Qwen3-VL-8B-Instruct",
+        "timeout": {
+          "connect": 10.0,
+          "read": 60.0
+        },
+        "max_tokens": 1024,
+        "temperature": 0.7,
+        "http_status": 200,
+        "elapsed_s": 2.8848648071289062e-05,
+        "trace_meta": {}
+      }
+    }
+  ]
+}

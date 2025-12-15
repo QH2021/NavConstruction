@@ -1,0 +1,6 @@
+{
+  "agent_id": "Agent1",
+  "timestamp": "20251211_170433_351",
+  "attempt": 1,
+  "output": "{\"actions\": [\"move_forward\"], \"reached_goal\": false, \"reasoning\": \"test\"}"
+}
