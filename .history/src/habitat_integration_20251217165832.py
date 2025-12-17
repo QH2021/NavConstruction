@@ -1040,8 +1040,8 @@ class HabitatSimEnvironment(UnifiedEnvironment):
             is_moving = action in ["move_forward", "move_backward"]
             if is_moving:
                 self._apply_leg_animation()
-            # else:
-            #     self._reset_leg_pose()
+            else:
+                self._reset_leg_pose()
                 
             obs = self.sim.get_sensor_observations()
 
@@ -1109,7 +1109,7 @@ class HabitatSimEnvironment(UnifiedEnvironment):
                 self.robot_obj.leg_joint_pos = joint_angles
                 
             # 更新帧索引
-            play_speed = self._animation_config.get("play_i_perframe", 5)
+            play_speed = self._animation_config.get("play_i_perframe", 1)
             self._animation_frame += play_speed
             
         except Exception as e:

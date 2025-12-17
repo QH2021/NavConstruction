@@ -219,7 +219,7 @@ def parse_arguments():
     parser.add_argument(
         "--max-steps",
         type=int,
-        default=20, # None
+        default=None,
         help="最大导航步数 (默认: 从配置读取)",
     )
     parser.add_argument(

@@ -146,15 +146,6 @@ environment:
     enabled: true
     # 机器狗URDF路径
     urdf_path: './data/robots/hab_spot_arm/urdf/hab_spot_arm.urdf'
-    leg_animation:
-      enabled: true
-      checkpoint: "data/robots/spot_data/spot_walking_trajectory.csv"
-      use_range: [107, 863]  # refer habitat 3.0
-      play_i_perframe: 5   # 每步播放5帧
-        
-      leg_init_params: [0.0, 0.7, -1.5, 0.0, 0.7, -1.5, 
-                        0.0, 0.7, -1.5, 0.0, 0.7, -1.5]  # 12个腿部关节初始角度
-
     # 初始位置 [x, y, z]
     initial_position: [0.0, 0.0, 0.0]
 

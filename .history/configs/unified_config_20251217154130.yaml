@@ -149,8 +149,8 @@ environment:
     leg_animation:
       enabled: true
       checkpoint: "data/robots/spot_data/spot_walking_trajectory.csv"
-      use_range: [107, 863]  # refer habitat 3.0
-      play_i_perframe: 5   # 每步播放5帧
+      use_range: [107, 863]  # 使用前100帧
+      play_i_perframe: 1   # 每步播放1帧
         
       leg_init_params: [0.0, 0.7, -1.5, 0.0, 0.7, -1.5, 
                         0.0, 0.7, -1.5, 0.0, 0.7, -1.5]  # 12个腿部关节初始角度

@@ -278,25 +278,13 @@ class HabitatSimEnvironment(UnifiedEnvironment):
                 
                 for row in reader:
                     if use_range[0] <= time_i < use_range[1]:
-                        # 解析关节角度
+                        # 解析关节角度 (假设格式: timestamp,j1,j2,...,j12)
                         joint_angs = row[0].split(',')[1:13]
                         joint_angs = [float(x) for x in joint_angs]
-                        
-                        # ===== 新增验证 =====
-                        if len(joint_angs) != 12:
-                            self.logger.warning(f"⚠️  第{time_i}帧数据异常: {len(joint_angs)}个关节")
-                            continue
-                        
                         self._leg_animation_data[time_i - use_range[0]] = joint_angs
                     time_i += 1
-            
-            if self._leg_animation_data:
-                self.logger.info(
-                    f"✅ 加载腿部动画: {len(self._leg_animation_data)} 帧 "
-                    f"(将应用到关节 8-19)"
-                )
-            else:
-                self.logger.warning("⚠️  未加载任何动画帧")
+                    
+            self.logger.info(f"✅ 加载腿部动画: {len(self._leg_animation_data)} 帧")
             
         except Exception as e:
             self.logger.warning(f"⚠️  动画加载失败: {e}")
@@ -1040,8 +1028,8 @@ class HabitatSimEnvironment(UnifiedEnvironment):
             is_moving = action in ["move_forward", "move_backward"]
             if is_moving:
                 self._apply_leg_animation()
-            # else:
-            #     self._reset_leg_pose()
+            else:
+                self._reset_leg_pose()
                 
             obs = self.sim.get_sensor_observations()
 
@@ -1069,86 +1057,6 @@ class HabitatSimEnvironment(UnifiedEnvironment):
             self.logger.error(f"❌ 执行动作失败: {e}")
             return self.get_observations(), {"error": str(e)}
 
-    def _apply_leg_animation(self):
-        """应用腿部动画到机器人关节"""
-        if not self._leg_animation_data or self.robot_obj is None:
-            return
-            
-        try:
-            # 获取当前帧（循环播放）
-            num_frames = len(self._leg_animation_data)
-            if num_frames == 0:
-                return
-                
-            frame_idx = int(self._animation_frame % num_frames)
-            joint_angles = self._leg_animation_data[frame_idx]
-            
-            # ===== 关键修正：Spot机器人的腿部关节是 8-19 =====
-            if hasattr(self.robot_obj, 'joint_positions'):
-                current_pos = self.robot_obj.joint_positions.copy()
-                
-                # 验证关节数量
-                if len(current_pos) < 20:
-                    self.logger.warning(f"⚠️  关节数量不足: {len(current_pos)}, 需要至少20个")
-                    return
-                
-                if len(joint_angles) != 12:
-                    self.logger.warning(f"⚠️  动画数据异常: {len(joint_angles)}个关节，需要12个")
-                    return
-                
-                # 将12个腿部关节角度应用到关节 8-19
-                current_pos[8:20] = joint_angles
-                self.robot_obj.joint_positions = current_pos
-                
-                # 调试日志（首次执行时打印）
-                if self._animation_frame == 0:
-                    self.logger.info(f"✅ 应用腿部动画: 关节8-19 = {joint_angles[:3]}...")
-                
-            # 方法2: 如果有单独的腿部关节访问接口（通常在RearrangeSim中）
-            elif hasattr(self.robot_obj, 'leg_joint_pos'):
-                self.robot_obj.leg_joint_pos = joint_angles
-                
-            # 更新帧索引
-            play_speed = self._animation_config.get("play_i_perframe", 5)
-            self._animation_frame += play_speed
-            
-        except Exception as e:
-            self.logger.debug(f"应用动画失败: {e}")
-
-    def _reset_leg_pose(self):
-        """重置腿部到初始姿态（停止时）"""
-        if self.robot_obj is None:
-            return
-            
-        try:
-            robot_cfg = self.env_config.get("robot", {})
-            
-            # 从 spot_robot.py 获取的默认初始姿态
-            default_leg_init = [
-                0.0, 0.7, -1.5,  # 前左腿
-                0.0, 0.7, -1.5,  # 前右腿
-                0.0, 0.7, -1.5,  # 后左腿
-                0.0, 0.7, -1.5,  # 后右腿
-            ]
-            
-            init_pose = robot_cfg.get("leg_init_params", default_leg_init)
-            
-            if hasattr(self.robot_obj, 'joint_positions'):
-                current_pos = self.robot_obj.joint_positions.copy()
-                if len(current_pos) >= 20 and len(init_pose) == 12:
-                    # 重置关节 8-19
-                    current_pos[8:20] = init_pose
-                    self.robot_obj.joint_positions = current_pos
-                    self._animation_frame = 0
-                    self.logger.debug("腿部姿态已重置")
-                    
-            elif hasattr(self.robot_obj, 'leg_joint_pos'):
-                self.robot_obj.leg_joint_pos = init_pose
-                self._animation_frame = 0
-                
-        except Exception as e:
-            self.logger.debug(f"重置腿部姿态失败: {e}")
-        
     def _display_visualization(self, obs: Dict[str, np.ndarray]):
         """
         显示Habitat可视化窗口

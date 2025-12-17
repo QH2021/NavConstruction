@@ -20,41 +20,109 @@ import logging
 from typing import Dict, Optional, Tuple
 from datetime import datetime
 from pathlib import Path
-import imageio
 
 logger = logging.getLogger(__name__)
 
 
 class BackCameraRecorder:
-    """使用 imageio 的录制器"""
+    """后置相机录制器（俯视视角）"""
 
     def __init__(
         self,
         output_dir: str,
         fps: int = 30,
         frame_size: Tuple[int, int] = (1280, 960),
+        codec: str = "h264",  # ← 改为 h264
         show_floorplan_overlay: bool = False,
     ):
+        """
+        初始化后置相机录制器
+
+        Args:
+            output_dir: 输出目录
+            fps: 帧率
+            frame_size: 帧尺寸 (W, H)
+            codec: 视频编码器 ('h264', 'avc1', 'x264', 'mp4v')
+        """
         self.output_dir = Path(output_dir)
         self.fps = fps
         self.frame_size = frame_size
-        self.show_floorplan_overlay = show_floorplan_overlay
+        self.codec = codec
+        self.show_floorplan_overlay = bool(show_floorplan_overlay)
 
+        if cv2 is None:
+            raise ImportError(
+                "BackCameraRecorder 需要 opencv-python（cv2）。请先执行: pip install opencv-python"
+            )
+
+        # 视频文件
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         self.video_path = self.output_dir / f"back_camera_{timestamp}.mp4"
 
-        # imageio 会自动使用 FFmpeg
-        self.writer = imageio.get_writer(
-            str(self.video_path),
-            fps=fps,
-            codec="libx264",
-            quality=8,  # 1-10，10 最佳
-            pixelformat="yuv420p",
-            macro_block_size=1,
+        # ===== 关键修改：H.264 编码器初始化 =====
+        self.writer = self._create_video_writer(codec, fps, frame_size)
+
+        if not self.writer.isOpened():
+            raise RuntimeError(
+                f"❌ 无法初始化视频编写器 (codec={codec})。"
+                f"请确保已安装 ffmpeg: sudo apt-get install ffmpeg"
+            )
+
+        logger.info(f"✅ 后置相机录制器初始化: {self.video_path}")
+        logger.info(f"   编码器: {codec}, 帧率: {fps} fps, 尺寸: {frame_size}")
+
+    def _create_video_writer(
+        self, codec: str, fps: int, frame_size: Tuple[int, int]
+    ) -> cv2.VideoWriter:
+        """
+        创建视频编写器（支持多种 H.264 编码器）
+
+        Args:
+            codec: 编码器名称
+            fps: 帧率
+            frame_size: 帧尺寸 (W, H)
+
+        Returns:
+            cv2.VideoWriter 对象
+        """
+        # H.264 编码器的多种 FourCC 代码（按优先级尝试）
+        h264_codecs = {
+            "h264": ["H264", "h264", "X264", "x264", "avc1", "AVC1"],
+            "x264": ["X264", "x264", "H264", "h264"],
+            "avc1": ["avc1", "AVC1", "H264", "h264"],
+            "mp4v": ["mp4v", "MP4V"],  # 保留兼容性
+        }
+
+        # 获取候选编码器列表
+        codec_lower = codec.lower()
+        candidates = h264_codecs.get(codec_lower, [codec.upper(), codec.lower()])
+
+        # 按优先级尝试
+        for fourcc_str in candidates:
+            try:
+                fourcc = cv2.VideoWriter_fourcc(*fourcc_str)
+                writer = cv2.VideoWriter(
+                    str(self.video_path), fourcc, fps, frame_size
+                )
+
+                # 验证是否成功打开
+                if writer.isOpened():
+                    logger.info(f"   ✓ 使用编码器: {fourcc_str}")
+                    return writer
+                else:
+                    writer.release()
+
+            except Exception as e:
+                logger.debug(f"   ✗ 编码器 {fourcc_str} 不可用: {e}")
+                continue
+
+        # 全部失败，返回最后一次尝试（让外部处理错误）
+        logger.warning(
+            f"⚠️  所有 H.264 编码器尝试失败，回退到 {candidates[-1]}"
         )
-
-        logger.info(f"✅ 录制器初始化: {self.video_path}")
-
+        fourcc = cv2.VideoWriter_fourcc(*candidates[-1])
+        return cv2.VideoWriter(str(self.video_path), fourcc, fps, frame_size)
+    
     def write_frame(
         self,
         frame: np.ndarray,
@@ -64,59 +132,53 @@ class BackCameraRecorder:
         metrics: Optional[Dict[str, any]] = None,
     ) -> bool:
         """
-        写入帧（frame 是 RGB 格式）
+        写入并注释帧到视频
 
         Args:
-            frame: RGB图像 (H, W, 3)
-            floorplan: 可通行区域平面图 (H, W, 3) BGR格式（可选）
-            robot_position: 机器狗位置 (x, y)
-            robot_heading: 机器狗朝向角度（度数）
+            frame: RGB图像 (H, W, 3) - 从Habitat或观测中获得的RGB格式
+            floorplan: 可通行区域平面图 (H, W, 3) BGR格式
+            robot_position: 机器狗在平面图中的位置 (x, y)
+            robot_heading: 机器狗朝向角度 (度数)
             metrics: 实时参数字典
 
         Returns:
             是否成功写入
         """
         try:
-            # imageio 接受 RGB 格式
-            if frame.shape[:2] != (self.frame_size[1], self.frame_size[0]):
-                if cv2 is not None:
-                    frame = cv2.resize(frame, self.frame_size)
-                else:
-                    # 如果没有 cv2，使用简单的裁剪/填充
-                    logger.warning("⚠️  未安装 cv2，无法调整帧大小")
+            # 【关键】输入是RGB格式，需要转换为BGR用于cv2.VideoWriter
+            import cv2
 
-            # ===== 添加注释（需要先转 BGR 处理，最后转回 RGB）=====
-            if cv2 is not None and (
-                self.show_floorplan_overlay
-                or robot_position is not None
-                or metrics is not None
-            ):
-                # 转换为 BGR 以便使用 cv2 绘制
-                frame_bgr = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+            frame_bgr = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
 
-                # 绘制平面图覆盖层（可选）
-                if self.show_floorplan_overlay and floorplan is not None:
-                    frame_bgr = self._draw_floorplan_overlay(frame_bgr, floorplan)
+            # 确保帧大小正确
+            if frame_bgr.shape[:2] != (self.frame_size[1], self.frame_size[0]):
+                frame_bgr = cv2.resize(frame_bgr, self.frame_size)
 
-                # 绘制机器狗位置
-                if robot_position is not None:
-                    frame_bgr = self._draw_robot_position(
-                        frame_bgr, robot_position, robot_heading
-                    )
+            # 制作注释帧的副本
+            annotated_frame = frame_bgr.copy()
 
-                # 绘制实时参数
-                if metrics is not None:
-                    frame_bgr = self._draw_metrics(frame_bgr, metrics)
+            # 按需求：视频不需要叠加平面图（默认关闭；保留参数以兼容旧调用）
+            if self.show_floorplan_overlay and floorplan is not None:
+                annotated_frame = self._draw_floorplan_overlay(
+                    annotated_frame, floorplan
+                )
 
-                # 转换回 RGB
-                frame = cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2RGB)
+            # 绘制机器狗位置
+            if robot_position is not None:
+                annotated_frame = self._draw_robot_position(
+                    annotated_frame, robot_position, robot_heading
+                )
 
-            # 写入帧
-            self.writer.append_data(frame)
+            # 绘制实时参数（右上角）
+            if metrics is not None:
+                annotated_frame = self._draw_metrics(annotated_frame, metrics)
+
+            # 写入视频
+            self.writer.write(annotated_frame)
             return True
 
         except Exception as e:
-            logger.error(f"❌ 写入帧失败: {e}")
+            logger.error(f"❌ 写入视频帧失败: {e}")
             return False
 
     @staticmethod
@@ -249,8 +311,7 @@ class BackCameraRecorder:
     def release(self):
         """释放视频编写器"""
         if self.writer is not None:
-            # ===== 关键修改：imageio.Writer 使用 close() 而不是 release() =====
-            self.writer.close()
+            self.writer.release()
             logger.info(f"✅ 视频已保存: {self.video_path}")
 
     def __enter__(self):
@@ -284,9 +345,6 @@ class FloorplanGenerator:
         Returns:
             BGR图像 (H, W, 3)
         """
-        if cv2 is None:
-            raise ImportError("FloorplanGenerator 需要 opencv-python")
-
         # 创建底层（白色背景）
         floorplan = np.ones((height, width, 3), dtype=np.uint8) * 255
 
@@ -312,9 +370,6 @@ class FloorplanGenerator:
         Returns:
             BGR图像 (H, W, 3)
         """
-        if cv2 is None:
-            raise ImportError("FloorplanGenerator 需要 opencv-python")
-
         floorplan = np.ones((height, width, 3), dtype=np.uint8) * 255
 
         # 绘制一个简单的可通行区域
@@ -329,7 +384,6 @@ class FloorplanGenerator:
         cv2.circle(floorplan, (width // 2, height // 2), 100, (0, 100, 255), -1)
 
         return floorplan
-
 
 def detect_available_codecs() -> Dict[str, bool]:
     """
@@ -346,7 +400,6 @@ def detect_available_codecs() -> Dict[str, bool]:
 
     # 临时测试文件
     import tempfile
-
     temp_path = Path(tempfile.gettempdir()) / "codec_test.mp4"
 
     for codec_str in test_codecs:
@@ -371,36 +424,8 @@ def detect_available_codecs() -> Dict[str, bool]:
 
 # 在模块加载时打印可用编码器（可选）
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
-    
-    print("测试 imageio 录制器:")
-    try:
-        with BackCameraRecorder(
-            output_dir="/tmp",
-            fps=30,
-            frame_size=(640, 480),
-        ) as recorder:
-            # 创建测试帧
-            for i in range(60):
-                frame = np.random.randint(0, 255, (480, 640, 3), dtype=np.uint8)
-                recorder.write_frame(
-                    frame,
-                    metrics={
-                        "step": i,
-                        "room": "Test Room",
-                        "position": f"({i}, {i})",
-                        "action": "move_forward",
-                        "status": "Testing",
-                    },
-                )
-        print("✅ 测试成功！")
-    except Exception as e:
-        print(f"❌ 测试失败: {e}")
-        import traceback
-        traceback.print_exc()
-
-    print("\n检测可用编码器:")
     codecs = detect_available_codecs()
+    logger.info("可用的视频编码器:")
     for codec, available in codecs.items():
         status = "✅" if available else "❌"
-        print(f"  {status} {codec}")
+        logger.info(f"  {status} {codec}")

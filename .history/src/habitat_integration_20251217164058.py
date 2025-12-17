@@ -278,25 +278,13 @@ class HabitatSimEnvironment(UnifiedEnvironment):
                 
                 for row in reader:
                     if use_range[0] <= time_i < use_range[1]:
-                        # 解析关节角度
+                        # 解析关节角度 (假设格式: timestamp,j1,j2,...,j12)
                         joint_angs = row[0].split(',')[1:13]
                         joint_angs = [float(x) for x in joint_angs]
-                        
-                        # ===== 新增验证 =====
-                        if len(joint_angs) != 12:
-                            self.logger.warning(f"⚠️  第{time_i}帧数据异常: {len(joint_angs)}个关节")
-                            continue
-                        
                         self._leg_animation_data[time_i - use_range[0]] = joint_angs
                     time_i += 1
-            
-            if self._leg_animation_data:
-                self.logger.info(
-                    f"✅ 加载腿部动画: {len(self._leg_animation_data)} 帧 "
-                    f"(将应用到关节 8-19)"
-                )
-            else:
-                self.logger.warning("⚠️  未加载任何动画帧")
+                    
+            self.logger.info(f"✅ 加载腿部动画: {len(self._leg_animation_data)} 帧")
             
         except Exception as e:
             self.logger.warning(f"⚠️  动画加载失败: {e}")
@@ -1040,8 +1028,8 @@ class HabitatSimEnvironment(UnifiedEnvironment):
             is_moving = action in ["move_forward", "move_backward"]
             if is_moving:
                 self._apply_leg_animation()
-            # else:
-            #     self._reset_leg_pose()
+            else:
+                self._reset_leg_pose()
                 
             obs = self.sim.get_sensor_observations()
 
@@ -1109,7 +1097,7 @@ class HabitatSimEnvironment(UnifiedEnvironment):
                 self.robot_obj.leg_joint_pos = joint_angles
                 
             # 更新帧索引
-            play_speed = self._animation_config.get("play_i_perframe", 5)
+            play_speed = self._animation_config.get("play_i_perframe", 1)
             self._animation_frame += play_speed
             
         except Exception as e:

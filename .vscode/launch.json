@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Run with Habitat (S101-R309)",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/run.py",  // run.py 的绝对路径（${workspaceFolder} 代表当前工作区根目录）
+            "args": [
+                "--use-habitat",
+                "--start", "S101",
+                "--end", "R309",
+                "--max-steps", "20",
+                // "--enable-viz"
+            ],
+            "console": "integratedTerminal",  // 使用集成终端执行
+            "justMyCode": false,                // 仅调试自己的代码（跳过库代码）
+            "env": {
+            "CUDA_VISIBLE_DEVICES":"1",
+            },                         // 可添加环境变量，例如: {"PYTHONPATH": "${workspaceFolder}"}
+            "cwd": "${workspaceFolder}",       // 执行目录（默认工作区根目录）
+            "stopOnEntry": false,              // 启动时是否立即暂停
+            "python": "/home/zeyingg/anaconda3/envs/falcon/bin/python",
+            // "pythonPath": "${command:python.interpreterPath}"  // 使用 VS Code 选中的 Python 解释器
+        }
+    ]
+}
